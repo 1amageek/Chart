@@ -24,12 +24,15 @@ public struct XAxisView<Content: View>: View {
     }
 
     public var body: some View {
-        GeometryReader { proxy in
-            ZStack {
-                ForEach(labels, id: \.value) { label in
-                    content(label)
-                        .position(x: x(label: label, range: axisRange, size: proxy.size),
-                                  y: proxy.size.height / 2)
+        VStack(spacing: 0) {
+            Divider()
+            GeometryReader { proxy in
+                ZStack {
+                    ForEach(labels, id: \.value) { label in
+                        content(label)
+                            .position(x: x(label: label, range: axisRange, size: proxy.size),
+                                      y: proxy.size.height / 2)
+                    }
                 }
             }
         }
@@ -53,14 +56,17 @@ public struct YAxisView<Content: View>: View {
     }
 
     public var body: some View {
-        GeometryReader { proxy in
-            ZStack {
-                ForEach(labels, id: \.value) { label in
-                    content(label)
-                        .position(x: proxy.size.width / 2,
-                                  y: y(label: label, range: axisRange, size: proxy.size))
+        HStack(spacing: 0) {
+            GeometryReader { proxy in
+                ZStack {
+                    ForEach(labels, id: \.value) { label in
+                        content(label)
+                            .position(x: proxy.size.width / 2,
+                                      y: y(label: label, range: axisRange, size: proxy.size))
+                    }
                 }
             }
+            Divider()
         }
     }
 }
