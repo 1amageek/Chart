@@ -60,7 +60,7 @@ struct ChartView_Previews: PreviewProvider {
                                               xAxis: ChartModel.Axis(title: "xAxis", range: (0...100)),
                                               yAxis: ChartModel.Axis(title: "yAxis", range: (0...100)),
                                               data: [
-                                                ChartModel.DataPoint(id: "0", x: 0, y: 0),
+//                                                ChartModel.DataPoint(id: "0", x: 0, y: 0),
                                                 ChartModel.DataPoint(id: "1", x: 10, y: 10),
                                                 ChartModel.DataPoint(id: "2", x: 20, y: 20),
                                                 ChartModel.DataPoint(id: "3", x: 30, y: 30),
